@@ -93,7 +93,7 @@ unsigned int getSizeFromLine(char *str)
 	char *buffer, *strCpy = strdup(str);
 	unsigned int words = 0;
 
-	if (*str == NULL)
+	if (!*str)
 	{
 		free(strCpy);
 		return (-1);

@@ -4,7 +4,7 @@ int main(int argc, char *argv[])
 {
 	SDL_Instance instance;
 
-	if (argc[1] == NULL)
+	if (argv[1] == NULL)
 		return (0);
 	float **grid = initGrid(argv[1]);
 	
