@@ -7,8 +7,8 @@
 #include <SDL2/SDL.h>
 
 
-#define SCREEN_WIDTH 1260
-#define SCREEN_HEIGHT 720
+#define WIN_WIDTH 1080
+#define WIN_HEIGHT 720
 
 typedef struct SDL_Instance
 {

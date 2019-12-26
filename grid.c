@@ -116,8 +116,8 @@ void draw_grid(SDL_Instance instance, float **z)
 	extern unsigned int size;
 	int res = size - 1;
 	float inclination = 0.7;
-	int width = SCREEN_WIDTH * 0.8;
-	int height = SCREEN_HEIGHT  * 0.8;
+	int width = WIN_WIDTH * 0.8;
+	int height = WIN_HEIGHT  * 0.8;
 	int x = 0, y = 0, dx = (width / res) - 1, dy = (height / res) - 1;
 	int X = 0, Y = 0, Wx = 0, Wy = 0, xOffset = 270, yOffset = 150;
 	int indx = 0, indy = 0;
