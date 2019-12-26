@@ -1,10 +1,5 @@
 #include "terrain.h"
 
-
-/*
-*
-*
-*/
 int init_instance(SDL_Instance *instance)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -14,7 +9,7 @@ int init_instance(SDL_Instance *instance)
 	}
 
 	instance->Window = SDL_CreateWindow("SDL2 \\o/", SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED, 1260, 720, 0);
+										SDL_WINDOWPOS_CENTERED, 1260, 720, 0);
 	if (instance->Window == NULL)
 	{
 		fprintf(stderr, "SDL_CreateWindow Error: %s\n", SDL_GetError());
@@ -22,9 +17,8 @@ int init_instance(SDL_Instance *instance)
 		return (1);
 	}
 
-
 	instance->renderer = SDL_CreateRenderer(instance->Window, -1,
-		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+											SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (instance->renderer == NULL)
 	{
 		SDL_DestroyWindow(instance->Window);
@@ -35,10 +29,6 @@ int init_instance(SDL_Instance *instance)
 	return (0);
 }
 
-/*
-*
-*
-*/
 void draw_stuff(SDL_Instance instance)
 {
 	SDL_SetRenderDrawColor(instance.renderer, 0xFF, 0xFF, 0xFF, 0xFF);
