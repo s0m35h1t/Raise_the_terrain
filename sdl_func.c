@@ -8,7 +8,7 @@ int init_instance(SDL_Instance *instance)
 		return (1);
 	}
 
-	instance->Window = SDL_CreateWindow("SDL2 \\o/", SDL_WINDOWPOS_CENTERED,
+	instance->Window = SDL_CreateWindow("Raise the terrain/", SDL_WINDOWPOS_CENTERED,
 										SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, 0);
 	if (instance->Window == NULL)
 	{

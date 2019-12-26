@@ -1,6 +1,5 @@
 #include "terrain.h"
 
-
 int event_handler(void)
 {
 	SDL_Event event;
@@ -16,6 +15,14 @@ int event_handler(void)
 			key = event.key;
 			if (key.keysym.scancode == 0x29)
 				return (1);
+			if (key_press.keysym.sym == SDLK_UP)
+				instance->angle--;
+			if (key_press.keysym.sym == SDLK_DOWN)
+				instance->angle--;
+			if (key_press.keysym.sym == SDLK_RIGHT)
+				instance->angle--;
+			if (key_press.keysym.sym == SDLK_LEFT)
+				instance->angle--;
 			break;
 		}
 	}
