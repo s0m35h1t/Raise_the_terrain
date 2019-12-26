@@ -45,7 +45,7 @@ float **initGrid(char *filename)
         j = 0;
         if (i == 0)
         {
-            size = getSizeFromLine(buffer, " \n");
+            size = getSizeFromLine(buffer);
             grid = girdAllocate(size, size);
         }
         elmValue = strtok(buffer, " \n");
@@ -106,7 +106,7 @@ unsigned int getSizeFromLine(char *str)
 		if (buffer != NULL)
 			words += 1;
 	}
-	free(tmpCpy);
+	free(strCpy);
 	size = words;
 	return (words);
 }

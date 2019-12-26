@@ -6,6 +6,10 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 
+
+#define SCREEN_WIDTH 1260
+#define SCREEN_HEIGHT 720
+
 typedef struct SDL_Instance
 {
 	SDL_Window *Window;

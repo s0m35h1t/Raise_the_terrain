@@ -3,11 +3,10 @@
 int main(int argc, char *argv[])
 {
 	SDL_Instance instance;
-	float **grid;
 
 	if (argc[1] == NULL)
 		return (0);
-	float **grid = file2matrix(argv[1]);
+	float **grid = initGrid(argv[1]);
 	
 	if (init_instance(&instance) != 0)
 		return (1);
