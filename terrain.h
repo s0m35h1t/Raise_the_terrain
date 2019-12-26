@@ -7,8 +7,8 @@
 #include <SDL2/SDL.h>
 
 
-#define WIN_WIDTH 640
-#define WIN_HEIGHT 480
+#define WIN_WIDTH 720
+#define WIN_HEIGHT 560
 
 extern unsigned int size;
 
