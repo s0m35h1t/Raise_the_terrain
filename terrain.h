@@ -7,8 +7,8 @@
 #include <SDL2/SDL.h>
 
 
-#define WIN_WIDTH 1080
-#define WIN_HEIGHT 720
+#define WIN_WIDTH 640
+#define WIN_HEIGHT 480
 
 extern unsigned int size;
 
@@ -20,7 +20,6 @@ typedef struct SDL_Instance
 
 
 int init_instance(SDL_Instance *);
-void draw_stuff(SDL_Instance instance);
 void quitSDL(SDL_Instance *);
 int event_handler(void);
 float **initGrid(char *filename);
