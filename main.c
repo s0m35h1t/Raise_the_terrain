@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-	SDL_Instance instance;
 
 	if (argv[1] == NULL)
 		return (0);
