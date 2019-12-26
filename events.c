@@ -15,13 +15,13 @@ int event_handler(void)
 			key = event.key;
 			if (key.keysym.scancode == 0x29)
 				return (1);
-			if (key_press.keysym.sym == SDLK_UP)
+			if (key.keysym.sym == SDLK_UP)
 				instance->angle--;
-			if (key_press.keysym.sym == SDLK_DOWN)
+			if (key.keysym.sym == SDLK_DOWN)
 				instance->angle--;
-			if (key_press.keysym.sym == SDLK_RIGHT)
+			if (key.keysym.sym == SDLK_RIGHT)
 				instance->angle--;
-			if (key_press.keysym.sym == SDLK_LEFT)
+			if (key.keysym.sym == SDLK_LEFT)
 				instance->angle--;
 			break;
 		}
