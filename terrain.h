@@ -10,7 +10,6 @@
 #define WIN_WIDTH 720
 #define WIN_HEIGHT 560
 
-extern instance_t *instance;
 extern unsigned int size;
 
 typedef struct SDL_Instance
@@ -19,6 +18,7 @@ typedef struct SDL_Instance
 	SDL_Renderer *renderer;
 } SDL_Instance;
 
+extern SDL_Instance *instance;
 
 int init_instance(SDL_Instance *);
 void quitSDL(SDL_Instance *);
