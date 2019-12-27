@@ -1,6 +1,6 @@
 #include "terrain.h"
 
-int init_instance(SDL_Instance *instance)
+int init_instance(void)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -30,7 +30,7 @@ int init_instance(SDL_Instance *instance)
 }
 
 
-void quitSDL(SDL_Instance *instance)
+void quitSDL(void)
 {
 	SDL_DestroyRenderer(instance->renderer);
 	SDL_DestroyWindow(instance->Window);

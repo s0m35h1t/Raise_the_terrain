@@ -16,18 +16,18 @@ typedef struct SDL_Instance
 {
 	SDL_Window *Window;
 	SDL_Renderer *renderer;
-} SDL_Instance;
+} SDL_Instance_t;
 
-extern SDL_Instance *instance;
+extern SDL_Instance_t *instance;
 
-int init_instance(SDL_Instance *);
-void quitSDL(SDL_Instance *);
+int init_instance(void);
+void quitSDL(void);
 int event_handler(void);
 float **initGrid(char *filename);
 float **girdAllocate(int width, int height);
 void freeGrid(float **grid, int height);
 unsigned int getSizeFromLine(char *str);
-void draw_grid(SDL_Instance instance, float **grid);
+void draw_grid(float **grid);
 
 
 #endif
