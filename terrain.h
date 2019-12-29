@@ -18,7 +18,7 @@ typedef struct SDL_Instance
 	SDL_Renderer *renderer;
 } SDL_Instance_t;
 
-extern SDL_Instance_t *instance;
+extern SDL_Instance_t instance;
 
 int init_instance(void);
 void quitSDL(void);

@@ -111,7 +111,7 @@ unsigned int getSizeFromLine(char *str)
 	return (words);
 }
 
-void draw_grid(float **z)
+void draw_grid(SDL_Instance instance, float **z)
 {
 	extern unsigned int size;
 	int res = size - 1;

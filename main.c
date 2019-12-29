@@ -2,12 +2,13 @@
 
 int main(int argc, char *argv[])
 {
+	SDL_Instance instance;
 
 	if (argv[1] == NULL)
 		return (0);
 	float **grid = initGrid(argv[1]);
 	
-	if (init_instance() != 0)
+	if (init_instance(&instance) != 0)
 		return (1);
 	while (1)
 	{
@@ -16,10 +17,10 @@ int main(int argc, char *argv[])
 		if (event_handler() == 1)
 		 	break;
 		// draw_stuff(instance);
-		draw_grid(grid);
+		draw_grid(instance, grid);
 		SDL_RenderPresent(instance.renderer);
 	}
-	quitSDL();
+	quitSDL(&instance);
 
 	return (0);
 }

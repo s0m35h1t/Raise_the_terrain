@@ -1,6 +1,6 @@
 #include "terrain.h"
 
-int init_instance(void)
+int init_instance(SDL_Instance *instance)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -8,7 +8,7 @@ int init_instance(void)
 		return (1);
 	}
 
-	instance->Window = SDL_CreateWindow("Raise the terrain/", SDL_WINDOWPOS_CENTERED,
+	instance->Window = SDL_CreateWindow("SDL2 \\o/", SDL_WINDOWPOS_CENTERED,
 										SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, 0);
 	if (instance->Window == NULL)
 	{
@@ -30,7 +30,7 @@ int init_instance(void)
 }
 
 
-void quitSDL(void)
+void quitSDL(SDL_Instance *instance)
 {
 	SDL_DestroyRenderer(instance->renderer);
 	SDL_DestroyWindow(instance->Window);
