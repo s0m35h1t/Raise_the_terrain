@@ -18,7 +18,7 @@
 #define INCL 0.7
 #endif
 
-extern unsigned int size;
+unsigned int size;
 /**
  * struct SDL_Instance - Defines a SDL Instance
  * @Window: SDL Window
