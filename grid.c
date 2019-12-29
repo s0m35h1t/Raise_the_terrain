@@ -1,4 +1,5 @@
 #include "terrain.h"
+
 /**
  * girdAllocate - creates a 2 dimensional array of floats initialized to 0
  * @width: width of array
@@ -7,59 +8,65 @@
  */
 float **girdAllocate(int width, int height)
 {
-    int l, c;
-    float **array;
+	int l, c;
+	float **array;
 
-    if (width <= 0 || height <= 0)
-        return (NULL);
-    array = (float **)malloc(sizeof(float *) * height);
-    if (array == NULL)
-        return (NULL);
-    for (l = 0; l < height; l++)
-    {
-        array[l] = (float *)malloc(sizeof(float) * width);
-        if (array[l] == NULL)
-        {
-            for (c = 0; c < l; c++)
-                free(array[c]);
-            free(array);
-            return (NULL);
-        }
-        for (c = 0; c < width; c++)
-            array[l][c] = 0;
-    }
-    return (array);
+	if (width <= 0 || height <= 0)
+		return (NULL);
+	array = (float **)malloc(sizeof(float *) * height);
+	if (array == NULL)
+		return (NULL);
+	for (l = 0; l < height; l++)
+	{
+		array[l] = (float *)malloc(sizeof(float) * width);
+		if (array[l] == NULL)
+		{
+			for (c = 0; c < l; c++)
+				free(array[c]);
+			free(array);
+			return (NULL);
+		}
+		for (c = 0; c < width; c++)
+			array[l][c] = 0;
+	}
+	return (array);
 }
-
+/**
+ * initGrid - creates a 2 dimensional array of floats from file
+ * @filename: file name
+ * Return: grid
+ */
 float **initGrid(char *filename)
 {
-    FILE *f = NULL;
-    char *buffer = NULL, *elmValue;
-    size_t buffBytes = 0;
-    unsigned int size = 0, i = 0, j = 0;
-    float **grid = NULL;
+	FILE *f = NULL;
+	char *buffer = NULL, *elmValue;
+	size_t buffBytes = 0;
+	unsigned int size = 0, i = 0, j;
+	float **grid = NULL;
 
-    f = fopen(filename, "r");
-    while (getline(&buffer, &buffBytes, f) != -1)
-    {
-        j = 0;
-        if (i == 0)
-        {
-            size = getSizeFromLine(buffer);
-            grid = girdAllocate(size, size);
-        }
-        elmValue = strtok(buffer, " \n");
-        while (elmValue)
-        {
-            grid[j][i] = strtof(elmValue, NULL);
-            elmValue = strtok(NULL, " \n");
-            j++;
-        }
-        free(buffer);
-        buffer = NULL;
-        i++;
-    }
-    return (grid);
+	f = fopen(filename, "r");
+	if (f == NULL)
+		exit(EXIT_FAILURE);
+	while (getline(&buffer, &buffBytes, f) != -1)
+	{
+		j = 0;
+		if (i == 0)
+		{
+			size = getSizeFromLine(buffer);
+			grid = girdAllocate(size, size);
+		}
+		elmValue = strtok(buffer, " \n");
+		while (elmValue)
+		{
+			grid[j][i] = strtof(elmValue, NULL);
+			elmValue = strtok(NULL, " \n");
+			j++;
+		}
+		free(buffer);
+		buffer = NULL;
+		i++;
+	}
+	return (grid);
 }
 
 /**
@@ -71,23 +78,20 @@ float **initGrid(char *filename)
  */
 void freeGrid(float **grid, int height)
 {
-    int i;
+	int i;
 
-    if (grid == NULL || height <= 0)
-        return;
-    for (i = 0; i < height; i++)
-        free(grid[i]);
-    free(grid);
+	if (grid == NULL || height <= 0)
+		return;
+	for (i = 0; i < height; i++)
+		free(grid[i]);
+	free(grid);
 }
 
 /**
  *getSizeFromLine - splits a string according to the delimiter
  *@str: pointer to the string
- *@delim: pointer to the delimiter
  *Return: a number
  */
-unsigned int size;
-
 unsigned int getSizeFromLine(char *str)
 {
 	char *buffer, *strCpy = strdup(str);
@@ -110,13 +114,18 @@ unsigned int getSizeFromLine(char *str)
 	size = words;
 	return (words);
 }
-
+/**
+ *draw_grid - draw grid
+ *@instance: SDL instance
+ *@z: grid
+ *Return: a number
+ */
 void draw_grid(SDL_Instance instance, float **z)
 {
-	extern unsigned int size;
+	unsigned int size;
 	int res = size - 1;
 	int width = WIN_WIDTH * 0.8;
-	int height = WIN_HEIGHT  * 0.8;
+	int height = WIN_HEIGHT * 0.8;
 	int x = 0, y = 0, dx = (width / res) - 1, dy = (height / res) - 1;
 	int X = 0, Y = 0, Wx = 0, Wy = 0, xOffset = 320, yOffset = 150;
 	int indx = 0, indy = 0;
@@ -136,7 +145,7 @@ void draw_grid(SDL_Instance instance, float **z)
 		}
 		indx++;
 	}
- 	indx = 0;
+	indx = 0;
 	indy = 0;
 	for (y = 0; y <= dy * res; y += dy)
 	{

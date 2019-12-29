@@ -1,5 +1,11 @@
 #include "terrain.h"
 
+
+/**
+ *init_instance -  init sdl instance
+ *@instance: SDL instance
+ *Return: int
+ */
 int init_instance(SDL_Instance *instance)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)

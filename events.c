@@ -1,6 +1,9 @@
 #include "terrain.h"
 
-
+/**
+ *event_handler - handel event
+ *Return: void
+ */
 int event_handler(void)
 {
 	SDL_Event event;
