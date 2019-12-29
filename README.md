@@ -5,7 +5,6 @@ Renders a terrain using isometric projection with a given altitudes.
 *  SDL2 - Simple DirectMedia Layer
 
 ## Compilation
-```$ gcc *.c -o terrain -Wall -Werror -Wextra -pedantic `sdl2-config --cflags --libs` -lm```
-
+```gcc *.c -o terrain $(sdl2-config --cflags --libs)```
 ## Usage
 `$ ./terrain <att_file_path>`
