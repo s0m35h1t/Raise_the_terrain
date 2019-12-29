@@ -9,8 +9,8 @@
 
 #define WIN_WIDTH 720
 #define WIN_HEIGHT 560
-
-extern unsigned int size;
+#define INCL 0.7
+unsigned int size;
 
 typedef struct SDL_Instance
 {

@@ -115,7 +115,6 @@ void draw_grid(SDL_Instance instance, float **z)
 {
 	extern unsigned int size;
 	int res = size - 1;
-	float inclination = 0.7;
 	int width = WIN_WIDTH * 0.8;
 	int height = WIN_HEIGHT  * 0.8;
 	int x = 0, y = 0, dx = (width / res) - 1, dy = (height / res) - 1;
@@ -128,10 +127,10 @@ void draw_grid(SDL_Instance instance, float **z)
 		indy = 0;
 		for (y = 0; y < dy * res; y += dy)
 		{
-			X = (x * inclination) - (inclination * y) + xOffset;
-			Y = y * (1 - inclination) + (1 - inclination) * x + yOffset - z[indx][indy];
-			Wx = (x * inclination) - (inclination * (y + dy)) + xOffset;
-			Wy = (1 - inclination) * x + (1 - inclination) * (y + dy) + yOffset - z[indx][indy + 1];
+			X = (x * INCL) - (INCL * y) + xOffset;
+			Y = y * (1 - INCL) + (1 - INCL) * x + yOffset - z[indx][indy];
+			Wx = (x * INCL) - (INCL * (y + dy)) + xOffset;
+			Wy = (1 - INCL) * x + (1 - INCL) * (y + dy) + yOffset - z[indx][indy + 1];
 			SDL_RenderDrawLine(instance.renderer, X, Y, Wx, Wy);
 			indy++;
 		}
@@ -144,10 +143,10 @@ void draw_grid(SDL_Instance instance, float **z)
 		indx = 0;
 		for (x = 0; x < dx * res; x += dx)
 		{
-			X = (x * inclination) - (inclination * y) + xOffset;
-			Y = y * (1 - inclination) + x * (1 - inclination) + yOffset - z[indx][indy];
-			Wx = (inclination * (x + dx)) - (inclination * y) + xOffset;
-			Wy = (1 - inclination) * (x + dx) + (1 - inclination) * y + yOffset - z[indx + 1][indy];
+			X = (x * INCL) - (INCL * y) + xOffset;
+			Y = y * (1 - INCL) + x * (1 - INCL) + yOffset - z[indx][indy];
+			Wx = (INCL * (x + dx)) - (INCL * y) + xOffset;
+			Wy = (1 - INCL) * (x + dx) + (1 - INCL) * y + yOffset - z[indx + 1][indy];
 			SDL_RenderDrawLine(instance.renderer, X, Y, Wx, Wy);
 			indx++;
 		}
